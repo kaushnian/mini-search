@@ -27,7 +27,8 @@ export default function SearchResultItem() {
             >
               http://search-result.com
             </Link>
-            <Typography>Secondary text</Typography>
+            <br />
+            <span>Secondary text</span>
           </>
         }
       />
