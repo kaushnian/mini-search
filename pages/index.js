@@ -1,4 +1,5 @@
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import Head from 'next/head';
 import SearchQuery from '../Components/SearchQuery';
 import SearchResults from '../Components/SearchResults';
@@ -15,6 +16,8 @@ export default function Home() {
         <header>
           <SearchQuery></SearchQuery>
         </header>
+
+        <Divider />
 
         <main>
           <SearchResults></SearchResults>
