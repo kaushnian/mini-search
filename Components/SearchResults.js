@@ -5,8 +5,6 @@ import useApi from '../hooks/useApi';
 export default function SearchResults({ query, searchApi }) {
   const { data, error } = useApi(query, searchApi);
 
-  console.log(data);
-
   return (
     <List>
       {data &&

@@ -4,12 +4,19 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
+import { useRef } from 'react';
 
 export default function SearchQuery({ onChange }) {
+  const inputRef = useRef();
+
   const handleSubmit = event => {
     event.preventDefault();
+    onChange(encodeURIComponent(inputRef.current.value));
+  };
 
-    onChange(encodeURIComponent(event.target.elements.query.value));
+  const clear = () => {
+    inputRef.current.value = '';
+    onChange('');
   };
 
   return (
@@ -18,6 +25,7 @@ export default function SearchQuery({ onChange }) {
         <TextField
           sx={{ width: 500 }}
           name="query"
+          inputRef={inputRef}
           InputProps={{
             placeholder: 'Search...',
             startAdornment: (
@@ -27,7 +35,7 @@ export default function SearchQuery({ onChange }) {
             ),
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton aria-label="Clear">
+                <IconButton onClick={clear} aria-label="Clear">
                   <ClearIcon />
                 </IconButton>
               </InputAdornment>
