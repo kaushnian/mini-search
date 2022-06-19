@@ -7,11 +7,7 @@ export default function useApi(query, searchApi) {
   const getUrl = () => {
     if (query === '') return null;
 
-    const url = API_URL[searchApi];
-
-    if (url == null) throw new Error(`Unsupported search API: ${searchApi}`);
-
-    return `${url}${query}`;
+    return `/api/${searchApi}?query=${query}`;
   };
 
   return useSWR(getUrl, fetcher);

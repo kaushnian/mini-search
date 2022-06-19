@@ -20,11 +20,11 @@ export default function SearchApiSelector({ selectedValue, onChange }) {
           label="Stackoverflow"
         />
         <FormControlLabel
-          checked={selectedValue === SEARCH_API.SPOTIFY}
-          value={SEARCH_API.SPOTIFY}
+          checked={selectedValue === SEARCH_API.WIKIPEDIA}
+          value={SEARCH_API.WIKIPEDIA}
           onChange={handleChange}
           control={<Radio />}
-          label="Spotify"
+          label="Wikipedia"
         />
       </RadioGroup>
     </FormControl>

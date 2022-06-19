@@ -2,7 +2,7 @@ import cors from 'cors';
 import nc from 'next-connect';
 
 const url = 'https://en.wikipedia.org/w/api.php?';
-const params = 'action=opensearch&format=json&limit=30&search=';
+const params = 'action=opensearch&format=json&limit=20&search=';
 
 export default nc()
   .use(cors())
