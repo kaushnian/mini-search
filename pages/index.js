@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Container maxWidth="md">
+      <Container maxWidth="false" disableGutters>
         <header>
           <SearchQuery onChange={setQuery}></SearchQuery>
         </header>

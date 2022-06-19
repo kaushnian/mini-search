@@ -13,7 +13,7 @@ export default function SearchQuery({ onChange }) {
   };
 
   return (
-    <Box sx={{ pt: 2, pb: 2, display: 'flex', justifyContent: 'center' }}>
+    <Box sx={{ pl: 8 }}>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           sx={{ width: 500 }}
