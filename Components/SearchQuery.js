@@ -9,7 +9,7 @@ export default function SearchQuery({ onChange }) {
   const handleSubmit = event => {
     event.preventDefault();
 
-    onChange(event.target.elements.query.value);
+    onChange(encodeURIComponent(event.target.elements.query.value));
   };
 
   return (
