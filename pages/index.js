@@ -1,4 +1,7 @@
+import Container from '@mui/material/Container';
 import Head from 'next/head';
+import SearchQuery from '../Components/SearchQuery';
+import SearchResults from '../Components/SearchResults';
 
 export default function Home() {
   return (
@@ -8,7 +11,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Main content</main>
+      <Container maxWidth="md">
+        <header>
+          <SearchQuery></SearchQuery>
+        </header>
+
+        <main>
+          <SearchResults></SearchResults>
+        </main>
+      </Container>
     </>
   );
 }
