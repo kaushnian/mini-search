@@ -1,3 +1,3 @@
-export default function SearchResults() {
-  return <>Search Results</>;
+export default function SearchResults({ query }) {
+  return <>{query}</>;
 }

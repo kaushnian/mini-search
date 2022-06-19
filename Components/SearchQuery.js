@@ -5,22 +5,28 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 
-export default function SearchQuery() {
+export default function SearchQuery({ onChange }) {
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    onChange(event.target.elements.query.value);
+  };
+
   return (
     <Box sx={{ pt: 2, pb: 2, display: 'flex', justifyContent: 'center' }}>
-      <form autoComplete="off">
+      <form autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           sx={{ width: 500 }}
-          id="query-input"
+          name="query"
           InputProps={{
             placeholder: 'Search...',
             startAdornment: (
-              <InputAdornment sx={{ mr: 1 }}>
+              <InputAdornment sx={{ mr: 1 }} position="start">
                 <SearchIcon />
               </InputAdornment>
             ),
             endAdornment: (
-              <InputAdornment>
+              <InputAdornment position="end">
                 <IconButton aria-label="Clear">
                   <ClearIcon />
                 </IconButton>

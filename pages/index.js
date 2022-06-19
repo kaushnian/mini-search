@@ -3,8 +3,11 @@ import Divider from '@mui/material/Divider';
 import Head from 'next/head';
 import SearchQuery from '../Components/SearchQuery';
 import SearchResults from '../Components/SearchResults';
+import { useState } from 'react';
 
 export default function Home() {
+  const [query, setQuery] = useState('');
+
   return (
     <>
       <Head>
@@ -14,13 +17,13 @@ export default function Home() {
 
       <Container maxWidth="md">
         <header>
-          <SearchQuery></SearchQuery>
+          <SearchQuery onChange={setQuery}></SearchQuery>
         </header>
 
         <Divider />
 
         <main>
-          <SearchResults></SearchResults>
+          <SearchResults query={query}></SearchResults>
         </main>
       </Container>
     </>
