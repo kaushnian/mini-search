@@ -9,5 +9,13 @@ export default nc()
   .get(async (req, res) => {
     const response = await fetch(`${url}${params}${req.query.query}`);
 
-    res.json(await response.json());
+    const [, titles, , links] = await response.json();
+
+    const result = titles.map((title, index) => ({
+      id: index,
+      title,
+      link: links[index],
+    }));
+
+    res.json(result);
   });

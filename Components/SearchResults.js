@@ -11,9 +11,7 @@ export default function SearchResults({ query, searchApi }) {
     <List>
       {data &&
         !error &&
-        data.items.map(item => (
-          <SearchResultItem key={item.question_id} data={item} />
-        ))}
+        data.map(item => <SearchResultItem key={item.id} {...item} />)}
     </List>
   );
 }

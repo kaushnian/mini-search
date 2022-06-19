@@ -4,15 +4,19 @@ import Link from '@mui/material/Link';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import { decode } from 'he';
 
-export default function SearchResultItem({ data: { title, link, owner } }) {
+export default function SearchResultItem({
+  title,
+  link,
+  secondaryText,
+  imageSrc,
+}) {
   return (
     <ListItem>
       <ListItemAvatar>
-        {owner.profile_image ? (
+        {imageSrc ? (
           <Image
-            src={owner.profile_image}
+            src={imageSrc}
             alt="Picture of the author"
             width={32}
             height={32}
@@ -24,7 +28,7 @@ export default function SearchResultItem({ data: { title, link, owner } }) {
       <ListItemText
         primary={
           <Link href={link} underline="hover" variant="h6" target="_blank">
-            {decode(title)}
+            {title}
           </Link>
         }
         secondary={
@@ -39,12 +43,7 @@ export default function SearchResultItem({ data: { title, link, owner } }) {
               {link}
             </Link>
             <br />
-            <span>
-              Author:{' '}
-              <Link href={owner.link} underline="hover" target="_blank">
-                {owner.display_name}
-              </Link>
-            </span>
+            {secondaryText && <span>{secondaryText}</span>}
           </>
         }
       />
