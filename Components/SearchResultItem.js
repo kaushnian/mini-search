@@ -10,12 +10,16 @@ export default function SearchResultItem({ data: { title, link, owner } }) {
   return (
     <ListItem>
       <ListItemAvatar>
-        <Image
-          src={owner.profile_image}
-          alt="Picture of the author"
-          width={32}
-          height={32}
-        />
+        {owner.profile_image ? (
+          <Image
+            src={owner.profile_image}
+            alt="Picture of the author"
+            width={32}
+            height={32}
+          />
+        ) : (
+          <ImageIcon />
+        )}
       </ListItemAvatar>
       <ListItemText
         primary={

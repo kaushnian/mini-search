@@ -9,16 +9,14 @@ const params = '&site=stackoverflow&pagesize=10';
 const url = `https://api.stackexchange.com/2.3/search?${key}${params}&intitle=`;
 
 export default function SearchResults({ query }) {
-  const { data, isValidating } = useSWR(
-    query !== '' && `${url}${query}`,
-    fetcher
-  );
+  const { data, error } = useSWR(query !== '' && `${url}${query}`, fetcher);
 
   console.log(data);
 
   return (
     <List>
       {data &&
+        !error &&
         data.items.map(item => (
           <SearchResultItem key={item.question_id} data={item} />
         ))}
