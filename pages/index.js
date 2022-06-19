@@ -34,7 +34,7 @@ export default function Home() {
         <Divider />
 
         <main>
-          <SearchResults query={query}></SearchResults>
+          <SearchResults query={query} searchApi={searchApi}></SearchResults>
         </main>
       </Container>
     </>
