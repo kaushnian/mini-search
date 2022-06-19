@@ -1,33 +1,46 @@
+import Image from 'next/image';
 import ImageIcon from '@mui/icons-material/Image';
 import Link from '@mui/material/Link';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
+import { decode } from 'he';
 
-export default function SearchResultItem() {
+export default function SearchResultItem({ data: { title, link, owner } }) {
   return (
     <ListItem>
       <ListItemAvatar>
-        <ImageIcon />
+        <Image
+          src={owner.profile_image}
+          alt="Picture of the author"
+          width={32}
+          height={32}
+        />
       </ListItemAvatar>
       <ListItemText
         primary={
-          <Link href="#" underline="hover" variant="h5">
-            Search Result Title
+          <Link href={link} underline="hover" variant="h6" target="_blank">
+            {decode(title)}
           </Link>
         }
         secondary={
           <>
             <Link
-              href="#"
+              href={link}
               underline="hover"
               variant="caption"
               color="text.secondary"
+              target="_blank"
             >
-              http://search-result.com
+              {link}
             </Link>
             <br />
-            <span>Secondary text</span>
+            <span>
+              Author:{' '}
+              <Link href={owner.link} underline="hover" target="_blank">
+                {owner.display_name}
+              </Link>
+            </span>
           </>
         }
       />
